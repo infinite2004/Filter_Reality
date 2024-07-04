@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter Reality</title>
+</head>
+<body>
+    <h1>Welcome to Filter Reality</h1>
+    <h2>Upload your Filters</h2>
+
+    <form method="post" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+    <button onclick="startARApp()">Start AR Application</button>
+
+    <script>
+        function startARApp() {
+            fetch('/start-ar', { method: 'POST' })
+                .then(response => response.text())
+                .then(data => alert(data))
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
